@@ -151,6 +151,8 @@ h1 em, h2 em { font-weight: 400; color: #e34b45; }
 .wishlist-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
 .wish-card { background: var(--paper); border: 1px solid #343e47; min-width: 0; display: flex; flex-direction: column; transition: transform .2s ease, box-shadow .2s ease; }
 .wish-card:hover { transform: translateY(-3px); box-shadow: 0 13px 30px rgba(0, 0, 0, .36); }
+.wish-card-link { color: inherit; text-decoration: none; cursor: pointer; }
+.wish-card-link:focus-visible { outline: 3px solid #f4766e; outline-offset: 3px; }
 /* List view retains the same item information and respects search, sorting and filters. */
 .wishlist-grid[data-view="list"] { grid-template-columns: minmax(0, 1fr); gap: 12px; }
 .wishlist-grid[data-view="list"] .wish-card { display: grid; grid-template-columns: 190px minmax(0, 1fr); min-height: 165px; }
@@ -175,7 +177,7 @@ h1 em, h2 em { font-weight: 400; color: #e34b45; }
 .wish-price { font-size: 15px; letter-spacing: -.02em; }
 .item-link { font-size: 11px; font-weight: 700; text-decoration: underline; text-underline-offset: 4px; white-space: nowrap; }
 .item-link span { margin-left: 3px; }
-.item-link:hover { color: #ff746b; }
+.wish-card-link:hover .item-link, .wish-card-link:focus-visible .item-link { color: #ff746b; }
 .item-no-link { color: #98a5af; font-size: 10px; font-style: italic; }
 .priority-legend { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 15px 25px; padding: 38px 0 0; color: #aab5bd; font-size: 11px; }
 .priority-legend > span:first-child { font-size: 10px; font-weight: 700; letter-spacing: .14em; margin-right: 4px; }

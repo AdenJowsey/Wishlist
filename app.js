@@ -104,6 +104,10 @@
 
   const state = { query: '', category: 'all', price: 'all', stars: 'all', sort: 'priority', view: savedView() };
 
+  // Shuffle equally ranked items once per page load; filtering or switching views won't reshuffle them.
+  const randomTieOrder = new Map(items.map((item) => [item, Math.random()]));
+  const tieOrder = (a, b) => randomTieOrder.get(a) - randomTieOrder.get(b);
+
   function setView(view) {
     state.view = view === 'list' ? 'list' : 'cards';
     $('wishlist-grid').dataset.view = state.view;
@@ -138,11 +142,11 @@
     filtered.sort((a, b) => {
       const left = normalizedPrice(a);
       const right = normalizedPrice(b);
-      const nameOrder = String(a.name).localeCompare(String(b.name));
-      if (state.sort === 'name') return nameOrder;
-      if (state.sort === 'price-low') return (left ?? Infinity) - (right ?? Infinity) || nameOrder;
-      if (state.sort === 'price-high') return (right ?? -Infinity) - (left ?? -Infinity) || nameOrder;
-      return normalizedStars(b) - normalizedStars(a) || (left ?? Infinity) - (right ?? Infinity) || nameOrder;
+      if (state.sort === 'name') return String(a.name).localeCompare(String(b.name)) || tieOrder(a, b);
+      if (state.sort === 'price-low') return (left ?? Infinity) - (right ?? Infinity) || tieOrder(a, b);
+      if (state.sort === 'price-high') return (right ?? -Infinity) - (left ?? -Infinity) || tieOrder(a, b);
+      // "Most wanted" stays grouped by priority, but cards within each tier are shuffled.
+      return normalizedStars(b) - normalizedStars(a) || tieOrder(a, b);
     });
     return filtered;
   }
@@ -156,14 +160,20 @@
     const visual = image
       ? `<img src="${escapeHtml(image)}" alt="" loading="lazy" />`
       : `<div class="item-placeholder">${icon(appearance.symbol, 'item-placeholder-icon')}<span class="placeholder-sun"></span><span class="placeholder-curve"></span></div>`;
+    // Make the whole card a native, keyboard-accessible link without nesting anchors.
+    // Cards without a valid URL remain ordinary, non-clickable articles.
+    const cardOpen = url
+      ? `<a class="wish-card wish-card-link" style="--card-index:${Math.min(position, 10)}" href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer" aria-label="View ${escapeHtml(item.name)} in a new tab">`
+      : `<article class="wish-card" style="--card-index:${Math.min(position, 10)}">`;
+    const cardClose = url ? '</a>' : '</article>';
     const cta = url
-      ? `<a class="item-link" href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer" aria-label="View ${escapeHtml(item.name)} in a new tab">View item <span aria-hidden="true">↗</span></a>`
+      ? '<span class="item-link">View item <span aria-hidden="true">↗</span></span>'
       : '<span class="item-no-link">No link added yet</span>';
-    return `<article class="wish-card" style="--card-index:${Math.min(position, 10)}">
+    return `${cardOpen}
       <div class="wish-image tone-${style}">${visual}<span class="wish-rank" aria-label="Priority: ${rating} out of 3 stars">${'★'.repeat(rating)}<span class="unfilled-stars">${'★'.repeat(3 - rating)}</span></span></div>
       <div class="wish-body"><span class="wish-category">${escapeHtml(item.category || 'Other')}</span><h3>${escapeHtml(item.name)}</h3><p class="wish-note">${escapeHtml(item.note || '')}</p>
       <div class="wish-card-footer"><strong class="wish-price">${escapeHtml(money(normalizedPrice(item)))}</strong>${cta}</div></div>
-    </article>`;
+    ${cardClose}`;
   }
 
   function hasFilters() {
