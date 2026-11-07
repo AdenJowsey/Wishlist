@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b0d10" />
+  <meta name="description" content="Aden’s personal wishlist, with gift ideas and specific things I’d like." />
+  <title>Aden’s Wishlist</title>
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+  <link rel="stylesheet" href="./styles.css" />
+  <script src="./data.js" defer></script>
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header shell">
+    <a class="brand" href="#top" aria-label="Aden’s Wishlist, back to top">
+      <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M16 27C7 22.3 3.8 17.5 5.1 12.1c1.1-4.5 6.5-6.5 10.9-1.4 4.4-5.1 9.8-3.1 10.9 1.4C28.2 17.5 25 22.3 16 27Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M16 11.5v10m-5-5h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+      <span>Aden’s Wishlist<span class="brand-period">.</span></span>
+    </a>
+    <nav class="primary-nav" aria-label="Main navigation">
+      <a href="#inspiration">Inspiration</a>
+      <a href="#wishlist">Wishlist</a>
+    </nav>
+    <a class="header-link" href="#wishlist">See the list <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main id="main">
+    <section id="top" class="hero shell" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="eyebrow-line"></span> IDEAS & SPECIFIC ITEMS</div>
+        <h1 id="hero-title">Aden’s <em>Wishlist.</em></h1>
+        <p>A collection of things I’m interested in, from general gift ideas to specific items I’d like. Nothing complicated.</p>
+        <div class="hero-actions">
+          <a class="button button-solid" href="#wishlist">See my wishlist <span aria-hidden="true">↗</span></a>
+          <a class="button button-text" href="#inspiration">General ideas <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="art-caption art-caption-top">SOME THINGS I LIKE <span> / 01</span></div>
+        <div class="art-orbit art-orbit-one"></div>
+        <div class="art-orbit art-orbit-two"></div>
+        <div class="art-blob art-blob-one"></div>
+        <div class="art-blob art-blob-two"></div>
+        <div class="art-sun"><svg viewBox="0 0 110 110" fill="none"><circle cx="55" cy="55" r="31" stroke="currentColor" stroke-width="2"/><path d="M55 0v13m0 84v13M0 55h13m84 0h13M16 16l9 9m60 60 9 9M94 16l-9 9M25 85l-9 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M43 56c8 9 17 9 25 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+        <div class="art-card art-card-back"><span>maybe someday</span><strong>on<br/>my<br/>list.</strong><span>↗ &nbsp;ideas for later</span></div>
+        <div class="art-card art-card-front"><span class="art-star">✳</span><span class="art-card-title">wish list.</span><span class="art-card-small">books, hobbies, tech & more</span></div>
+        <div class="art-scribble">✦</div>
+        <div class="art-caption art-caption-bottom">NO PARTICULAR ORDER</div>
+      </div>
+    </section>
+
+    <section class="inspiration-section" id="inspiration" aria-labelledby="inspiration-title">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow eyebrow-muted">GENERAL IDEAS</div>
+            <h2 id="inspiration-title">Gift <em>ideas.</em></h2>
+          </div>
+          <p>Broad categories I’m into. Useful if you’d rather choose something yourself.</p>
+        </div>
+        <div id="inspiration-grid" class="inspiration-grid" aria-live="polite"></div>
+        
+      </div>
+    </section>
+
+    <section class="wishlist-section shell" id="wishlist" aria-labelledby="wishlist-title">
+      <div class="section-heading list-section-heading">
+        <div>
+          <div class="eyebrow eyebrow-muted">SPECIFIC ITEMS</div>
+          <h2 id="wishlist-title">The <em>wishlist.</em></h2>
+        </div>
+        <p>Actual items I’d like, with approximate prices and a star rating for how much I want each one.</p>
+      </div>
+      <div class="wishlist-toolbar" role="search" aria-label="Search and filter wishlist">
+        <div class="filter-top-row">
+          <label class="search-field">
+            <span class="sr-only">Search wishlist</span>
+            <svg viewBox="0 0 24 24" width="19" height="19" fill="none" aria-hidden="true"><circle cx="10.9" cy="10.9" r="7" stroke="currentColor" stroke-width="1.8"/><path d="m16.5 16.5 4.2 4.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <input type="search" id="search-input" placeholder="Search for something…" autocomplete="off" />
+            <span class="search-kbd" aria-hidden="true">⌕</span>
+          </label>
+          <label class="select-wrap"><span class="select-label">CATEGORY</span><select id="category-filter" aria-label="Filter by category"><option value="all">All categories</option></select></label>
+          <label class="select-wrap"><span class="select-label">PRICE</span><select id="price-filter" aria-label="Filter by price"><option value="all">Any price</option><option value="under-20">Under $20</option><option value="20-50">$20 – $50</option><option value="50-100">$50 – $100</option><option value="100-300">$100 – $300</option><option value="300-plus">$300+</option><option value="unknown">Unknown</option></select></label>
+        </div>
+        <div class="filter-bottom-row">
+          <fieldset class="priority-picker"><legend>HOW MUCH I WANT IT</legend>
+            <button type="button" class="priority-option is-active" data-stars="all" aria-pressed="true">All</button>
+            <button type="button" class="priority-option" data-stars="1" aria-pressed="false" aria-label="Show one-star items">★</button>
+            <button type="button" class="priority-option" data-stars="2" aria-pressed="false" aria-label="Show two-star items">★★</button>
+            <button type="button" class="priority-option" data-stars="3" aria-pressed="false" aria-label="Show three-star items">★★★</button>
+          </fieldset>
+          <label class="sort-wrap"><span class="sort-label">SORT BY</span><select id="sort-select" aria-label="Sort wishlist"><option value="priority">Most wanted</option><option value="price-low">Price: low to high</option><option value="price-high">Price: high to low</option><option value="name">Name: A to Z</option></select></label>
+        </div>
+      </div>
+      <div class="results-bar">
+        <div class="results-actions">
+          <button class="clear-filters" id="clear-filters" type="button" hidden>Clear filters <span aria-hidden="true">×</span></button>
+          <div class="view-toggle" role="group" aria-label="Wishlist view">
+            <button type="button" class="view-option is-active" data-view="cards" aria-pressed="true" aria-label="Card view" title="Card view">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg>
+              <span>Cards</span>
+            </button>
+            <button type="button" class="view-option" data-view="list" aria-pressed="false" aria-label="List view" title="List view">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 6h12M9 12h12M9 18h12"/><path d="M3 6h2M3 12h2M3 18h2"/></svg>
+              <span>List</span>
+            </button>
+          </div>
+        </div>
+        <p id="results-count" role="status" aria-live="polite">Loading wishlist…</p>
+      </div>
+      <div id="wishlist-grid" class="wishlist-grid" data-view="cards"></div>
+      <div id="empty-state" class="empty-state" hidden>
+        <div class="empty-state-icon" aria-hidden="true">✳</div>
+        <h3>No matches this time.</h3>
+        <p>Try changing the search or loosening the filters.</p>
+        <button type="button" class="button button-solid" id="empty-reset">Reset filters <span aria-hidden="true">↗</span></button>
+      </div>
+      <div class="priority-legend" aria-label="Star rating meanings"><span>THE STAR GUIDE</span><span><b>★</b> Nice to have</span><span><b>★★</b> Would love</span><span><b>★★★</b> Top of the list</span></div>
+    </section>
+
+
+  </main>
+  <footer class="site-footer shell"><span>Last Updated: <span id="year"></span> <br> Sizing Information: 193cm Height, Fits Medium to Large, 108cm Chest/Waist, 34W/32L Pants</span><a href="#top">Back to top ↑</a></footer>
+  <noscript><p class="noscript">This site needs JavaScript enabled to display the wishlist and filters.</p></noscript>
+</body>
+</html>
