@@ -18,7 +18,7 @@
  */
 window.WISHLIST_DATA = {
   lastUpdated: "2024-06-01",
-  
+
   currency: "NZD",
 
   inspiration: [
@@ -63,8 +63,8 @@ window.WISHLIST_DATA = {
   },
   {
     "number": "04",
-    "title": "Sci-fi & Fantasy Fiction",
-    "description": "Audiobooks with memorable characters, difficult choices, political intrigue, dark turns, slow burns, and expansive worlds. Happy to discover unfamiliar authors.",
+    "title": "Sci-fi & Fantasy Audiobooks",
+    "description": "Fiction audiobooks with memorable characters, difficult choices, political intrigue, dark turns, slow burns, and expansive worlds. Happy to discover unfamiliar authors.",
     "examples": [
       "Epic fantasy",
       "Dystopian sci-fi",
@@ -338,6 +338,26 @@ window.WISHLIST_DATA = {
         "note": "Considering",
         "url": "https://boardgamegeek.com/boardgame/338960/slay-the-spire-the-board-game",
         "image": "https://cf.geekdo-images.com/PQzVclEoOQ_wr4e1V86kxA__micro@2x/img/tBIj0w5_KU48gpyOL3OPs4Heyjs=/fit-in/128x128/filters:strip_icc()/pic8157856.png"
+    },
+    {
+        "id": "Sword",
+        "name": "Replica Sword",
+        "category": "Weapons",
+        "price": 150,
+        "stars": 2,
+        "note": "Imagine how cool this would be!",
+        "url": "",
+        "image": ""
+    },
+    {
+      "id": "trench-crusade-rulebook",
+      "name": "Trench Crusade Rulebook",
+      "category": "War games",
+      "price": 140,
+      "stars": 2,
+      "note": "",
+      "url": "https://www.gameology.com.au/products/trench-crusade-trench-crusade-rulebook-v1-1",
+      "image": "/images/trench-crusade-rulebook.jpg"
     }
 ],
 };
