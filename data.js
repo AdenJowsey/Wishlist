@@ -643,5 +643,27 @@ window.WISHLIST_DATA = {
       image:
         "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2432860/712ef94aec7a757b3624747424de8336687743ec/header.jpg?t=1793269892",
     },
+        {
+      id: "shoes-1",
+      name: "Sawyer II",
+      category: "Shoes",
+      price: 229.99,
+      stars: 2,
+      note: "",
+      url: "https://www.numberoneshoesandhannahs.co.nz/hush-puppies-sawyer-ii-mens-slip-on-shoes-sawyer-ii-hp-shoes-black",
+      image:
+        "https://www.numberoneshoesandhannahs.co.nz/content/products/hush-puppies-sawyer-ii-mens-slip-on-shoes-black-image02-sawyer-ii-hp-shoes.jpg",
+    },
+            {
+      id: "shoes-2",
+      name: "Sawyer III",
+      category: "Shoes",
+      price: 229.99,
+      stars: 2,
+      note: "",
+      url: "https://www.numberoneshoesandhannahs.co.nz/hush-puppies-sawyer-iii-mens-slip-on-shoes-sawyer-iii-hp-shoes-brown",
+      image:
+        "https://www.numberoneshoesandhannahs.co.nz/content/products/hush-puppies-sawyer-iii-mens-slip-on-shoes-brown-image02-sawyer-iii-hp-shoes.jpg",
+    },
   ],
 };
