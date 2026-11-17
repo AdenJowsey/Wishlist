@@ -589,17 +589,6 @@ window.WISHLIST_DATA = {
         "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1466060/5660590ed7a97a0e2dddf20fd7a83379e23b7231/header.jpg?t=1793295003",
     },
     {
-      id: "steam-4049810",
-      name: "Lancer Tactics",
-      category: "Video games",
-      price: null,
-      stars: 3,
-      note: "UPCOMING",
-      url: "https://store.steampowered.com/app/4049810/Lancer_Tactics",
-      image:
-        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4049810/d8ea6426aacb0eae6493e92ce0a1a7cb1e664e24/header.jpg?t=1782773870",
-    },
-    {
       id: "steam-2902740",
       name: "Draw Steel",
       category: "Video games",
